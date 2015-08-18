@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - 1.9.3
+  - 2.0.0
+  - 2.1
+  - 2.2
+  - rbx-2
+  - ruby-head
+notifications:
+  slack: lemon:SeSji4OVQ1qGtQ2Gg2iTLCge
