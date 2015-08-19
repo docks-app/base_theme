@@ -22,43 +22,41 @@ describe Docks::Themes::Base do
       double(options: OpenStruct.new(style_language: "scss", script_language: "javascript", template_language: "erb"))
     end
 
-    it "adds style files" do
-      expect(builder).to receive(:add_assets).with :styles, Dir[File.join(asset_root, "styles/scss/**/*")]
+    before(:each) do
       allow(builder).to receive(:add_assets)
+    end
+
+    it "adds style files" do
       subject.setup(builder)
+      expect(builder).to have_received(:add_assets).with Dir[File.join(asset_root, "styles/scss/**/*.*")], type: :styles, root: Pathname.new(File.join(asset_root, "styles/scss"))
     end
 
     it "adds script files" do
-      expect(builder).to receive(:add_assets).with :scripts, Dir[File.join(asset_root, "scripts/javascript/**/*")]
-      allow(builder).to receive(:add_assets)
       subject.setup(builder)
+      expect(builder).to have_received(:add_assets).with Dir[File.join(asset_root, "scripts/javascript/**/*.*")], type: :scripts, root: Pathname.new(File.join(asset_root, "scripts/javascript"))
     end
 
     it "adds template files" do
-      expect(builder).to receive(:add_assets).with :templates, Dir[File.join(asset_root, "templates/erb/**/*")]
-      allow(builder).to receive(:add_assets)
       subject.setup(builder)
+      expect(builder).to have_received(:add_assets).with Dir[File.join(asset_root, "templates/erb/**/*.*")], type: :templates, root: Pathname.new(File.join(asset_root, "templates/erb"))
     end
 
     it "adds style files of a custom language" do
       builder.options.style_language = "less"
-      expect(builder).to receive(:add_assets).with :styles, Dir[File.join(asset_root, "styles/less/**/*")]
-      allow(builder).to receive(:add_assets)
       subject.setup(builder)
+      expect(builder).to have_received(:add_assets).with Dir[File.join(asset_root, "styles/less/**/*.*")], type: :styles, root: Pathname.new(File.join(asset_root, "styles/less"))
     end
 
     it "adds script files of a custom language" do
       builder.options.script_language = "coffeescript"
-      expect(builder).to receive(:add_assets).with :scripts, Dir[File.join(asset_root, "scripts/coffeescript/**/*")]
-      allow(builder).to receive(:add_assets)
       subject.setup(builder)
+      expect(builder).to have_received(:add_assets).with Dir[File.join(asset_root, "scripts/coffeescript/**/*.*")], type: :scripts, root: Pathname.new(File.join(asset_root, "scripts/coffeescript"))
     end
 
     it "adds template files of a custom language" do
       builder.options.template_language = "haml"
-      expect(builder).to receive(:add_assets).with :templates, Dir[File.join(asset_root, "templates/haml/**/*")]
-      allow(builder).to receive(:add_assets)
       subject.setup(builder)
+      expect(builder).to have_received(:add_assets).with Dir[File.join(asset_root, "templates/haml/**/*.*")], type: :templates, root: Pathname.new(File.join(asset_root, "templates/haml"))
     end
   end
 

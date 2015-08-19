@@ -19,6 +19,11 @@ describe Docks::Themes::Assets do
       expect(path).to eq Pathname.new(File.join(root, "styles/pattern-library.css"))
     end
 
+    it "returns a pathname for a directory" do
+      path = subject.path_for("styles")
+      expect(path).to eq Pathname.new(File.join(root, "styles"))
+    end
+
     it "joins parts of the file that were passed" do
       path = subject.path_for("styles", "pattern-library.css")
       expect(path).to eq Pathname.new(File.join(root, "styles/pattern-library.css"))

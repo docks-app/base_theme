@@ -33,15 +33,15 @@ module Docks
       private
 
       def setup_styles(builder, language)
-        builder.add_assets(:styles, assets.files_for("styles/#{language}/**/*"))
+        builder.add_assets(assets.files_for("styles/#{language}/**/*.*"), type: :styles, root: assets.path_for("styles/#{language}"))
       end
 
       def setup_scripts(builder, language)
-        builder.add_assets(:scripts, assets.files_for("scripts/#{language}/**/*"))
+        builder.add_assets(assets.files_for("scripts/#{language}/**/*.*"), type: :scripts, root: assets.path_for("scripts/#{language}"))
       end
 
       def setup_templates(builder, language)
-        builder.add_assets(:templates, assets.files_for("templates/#{language}/**/*"))
+        builder.add_assets(assets.files_for("templates/#{language}/**/*.*"), type: :templates, root: assets.path_for("templates/#{language}"))
       end
     end
   end
