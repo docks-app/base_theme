@@ -1,3 +1,3 @@
 # Docks Theme - Base
 
-[![Build Status](https://travis-ci.org/docks-app/docks_theme_base.svg?branch=master)](https://travis-ci.org/docks-app/docks_theme_base)
+[![Build Status](https://travis-ci.org/docks-app/base_theme.svg?branch=master)](https://travis-ci.org/docks-app/base_theme)
