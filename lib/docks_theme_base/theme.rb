@@ -7,10 +7,11 @@ module Docks
     class Base
       include Singleton
 
-      attr_reader :assets
+      attr_reader :assets, :helpers
 
       def initialize
         @assets = Assets.new(root: File.expand_path("../../../assets", __FILE__))
+        @helpers = []
       end
 
       def styles

@@ -17,6 +17,12 @@ describe Docks::Themes::Base do
     end
   end
 
+  describe "#helpers" do
+    it "has no helpers" do
+      expect(subject.helpers).to be_empty
+    end
+  end
+
   describe "#setup" do
     let(:builder) do
       double(options: OpenStruct.new(style_language: "scss", script_language: "javascript", template_language: "erb"))
