@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.require_paths         = ["lib"]
 
   s.add_dependency "activesupport"
-  s.add_dependency "docks"
+  s.add_dependency "docks", github: "docks-app/docks"
 
   s.add_development_dependency "bundler", "~> 1.3"
   s.add_development_dependency "rubocop", "< 1.0"
